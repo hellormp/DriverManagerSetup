@@ -2,6 +2,7 @@ package setupDriver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 public class firstTest extends startDownTest{
@@ -18,8 +19,9 @@ public class firstTest extends startDownTest{
         if (getTitle == driver.getTitle()){
             System.out.println("ER");
         };
-
-
+        SearchFeild();
+        SearchButton();
+        AddToBasket();
 
     }
     /*2.
@@ -29,16 +31,45 @@ public class firstTest extends startDownTest{
     public void getTitle(){
         System.out.println(driver.getTitle());
     }
-    /*3.Find elements and click on them
+    /*3.Check if the elements can be found, the
     *
     * */
-    @Test(priority = 3)
+    @Ignore
     public void findElements(){
+        SearchFeild();
+        SearchButton();
+        AddToBasket();
+
+    }
+    /*4.Check if the button isEnable, can be clickable.
+     *
+     * */
+    @Test(priority = 4)
+    public void LoginButtonIsEnable(){
+        WebElement LoginButton = driver.findElement(By.xpath("(//a[@rel='nofollow'])[5]"));
+        if (LoginButton.isEnabled()){
+            LoginButton.click();
+        }
+        else {
+            LoginButton.getLocation();
+            LoginButton.getText();
+            LoginButton.getTagName();
+        }
+    }
+    @Ignore
+    public void SearchFeild(){
         WebElement SearchFeild = driver.findElement(By.xpath("//input[@class='text-input']"));
         SearchFeild.sendKeys("camileo");
+    }
+    @Ignore
+    public void SearchButton(){
         WebElement SearchButton = driver.findElement(By.xpath("//button[@aria-label='Search']"));
         SearchButton.click();
+    }
+    @Ignore
+    public void AddToBasket(){
         WebElement AddToBasket = driver.findElement(By.xpath("//a[@data-isbn='9780007419494']"));
         AddToBasket.click();
     }
+
 }
