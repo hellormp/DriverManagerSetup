@@ -9,8 +9,7 @@ public class firstTest extends startDownTest{
     private static final String URL = "https://www.bookdepository.com/";
 
     /*1.
-    Check if the user can open the link, after navigation to link > compare the Title(url) with ER
-    *
+    Check if the user can open the link, after navigation to link, find the any data and compare the Title(url) with expected result
     * */
     @Test(priority = 1)
     public void CheckTheLink(){
@@ -22,18 +21,15 @@ public class firstTest extends startDownTest{
         SearchFeild();
         SearchButton();
         AddToBasket();
-
     }
     /*2.
-    Check if the Title
+    Check if the Title is Enable
     * */
     @Test(priority = 2)
     public void getTitle(){
         System.out.println(driver.getTitle());
     }
-
-    /*4.Check if the button isEnable, can be clickable.
-     *
+    /*4.Check if the Login button isEnable, can be clickable.
      * */
     @Test(priority = 3)
     public void LoginButtonIsEnable(){
@@ -47,30 +43,22 @@ public class firstTest extends startDownTest{
             LoginButton.getTagName();
         }
     }
-    /*3.Check if the elements can be found, the
-     *
-     * */
-    @Ignore
-    public void findElements(){
-        SearchFeild();
-        SearchButton();
-        AddToBasket();
-
-    }
+    //Need create another class to hide this mathod
     @Ignore
     public void SearchFeild(){
         WebElement SearchFeild = driver.findElement(By.xpath("//input[@class='text-input']"));
         SearchFeild.sendKeys("camileo");
     }
+    //Need create another class to hide this mathod
     @Ignore
     public void SearchButton(){
         WebElement SearchButton = driver.findElement(By.xpath("//button[@aria-label='Search']"));
         SearchButton.click();
     }
+    //Need create another class to hide this mathod
     @Ignore
     public void AddToBasket(){
         WebElement AddToBasket = driver.findElement(By.xpath("//a[@data-isbn='9780007419494']"));
         AddToBasket.click();
     }
-
 }
