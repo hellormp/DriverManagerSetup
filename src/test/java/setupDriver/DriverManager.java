@@ -7,7 +7,7 @@ public class DriverManager {
     private static WebDriver driver;
     private static  void setDriver(){
         driver = new ChromeDriver(WebDriverConfig.chromeDriverOptions());
-
+        driver.manage().window().maximize();
     }
 
     public static WebDriver getDriver(){
