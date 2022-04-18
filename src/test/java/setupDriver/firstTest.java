@@ -31,20 +31,11 @@ public class firstTest extends startDownTest{
     public void getTitle(){
         System.out.println(driver.getTitle());
     }
-    /*3.Check if the elements can be found, the
-    *
-    * */
-    @Ignore
-    public void findElements(){
-        SearchFeild();
-        SearchButton();
-        AddToBasket();
 
-    }
     /*4.Check if the button isEnable, can be clickable.
      *
      * */
-    @Test(priority = 4)
+    @Test(priority = 3)
     public void LoginButtonIsEnable(){
         WebElement LoginButton = driver.findElement(By.xpath("(//a[@rel='nofollow'])[5]"));
         if (LoginButton.isEnabled()){
@@ -55,6 +46,16 @@ public class firstTest extends startDownTest{
             LoginButton.getText();
             LoginButton.getTagName();
         }
+    }
+    /*3.Check if the elements can be found, the
+     *
+     * */
+    @Ignore
+    public void findElements(){
+        SearchFeild();
+        SearchButton();
+        AddToBasket();
+
     }
     @Ignore
     public void SearchFeild(){
