@@ -21,11 +21,5 @@ public class DriverManager {
         }
         return driver;
     }
-    public WebDriverWait getWait(long timeUnits){
-        WebDriverWait webDriverWait = new WebDriverWait(driver,timeUnits);
-        webDriverWait.ignoring(NoSuchElementException.class)
-                .ignoring(ElementNotInteractableException.class)
-                .ignoring(StaleElementReferenceException.class);
-        return webDriverWait;
-    }
+
 }
