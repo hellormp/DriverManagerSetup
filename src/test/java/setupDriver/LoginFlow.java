@@ -2,6 +2,8 @@ package setupDriver;
 
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.ashot.AShot;
@@ -26,13 +28,14 @@ public class LoginFlow extends firstTest {
     @Test
     public void ForgotPasswordFlow(){
         LoginWithCorrectCredentials();
+    String TITLE = "Book Depository Password Assistance";
+        new WebDriverWait(driver, 10).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                return d.getTitle().equals(TITLE);
+
+            }});
         WebElement forgotPassword = driver.findElement(By.xpath("//a[@id='auth-fpp-link-bottom']"));
-        //a[@id='auth-fpp-link-bottom']
 
-
-
-
-        return;
     }
     @Test
     public void Join(){
@@ -40,9 +43,8 @@ public class LoginFlow extends firstTest {
         WebElement signInJoinButton = driver.findElement(By.xpath("(//a[@rel='nofollow'])[5]"));
         signInJoinButton.click();
 
-        getWait(10);
 
-        WebElement nameInput = driver.findElement(By.xpath("//form[@id='ap_register_form']/div/input"));
+        WebElement nameInput = driver.findElement(By.id("ap_customer_name"));
         nameInput.sendKeys("Yarik");
 
         WebElement yourEmailAddressInput = driver.findElement(By.xpath("//input[@placeholder='Your email address']"));
@@ -82,7 +84,6 @@ public class LoginFlow extends firstTest {
 
 
         }
-
 
     }
 

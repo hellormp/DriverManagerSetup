@@ -1,11 +1,10 @@
 package setupDriver;
 
-import org.openqa.selenium.ElementNotInteractableException;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
+
 
 public class DriverManager {
     private static WebDriver driver;
@@ -13,6 +12,7 @@ public class DriverManager {
     private static  void setDriver(){
         driver = new ChromeDriver(WebDriverConfig.chromeDriverOptions());
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
     public static WebDriver getDriver(){
