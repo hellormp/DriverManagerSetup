@@ -2,6 +2,8 @@ package setupDriver;
 
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -28,12 +30,7 @@ public class LoginFlow extends firstTest {
     @Test
     public void ForgotPasswordFlow(){
         LoginWithCorrectCredentials();
-    String TITLE = "Book Depository Password Assistance";
-        new WebDriverWait(driver, 10).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                return d.getTitle().equals(TITLE);
-
-            }});
+        String TITLE = "Book Depository Password Assistance";
         WebElement forgotPassword = driver.findElement(By.xpath("//a[@id='auth-fpp-link-bottom']"));
 
     }
@@ -85,6 +82,13 @@ public class LoginFlow extends firstTest {
 
         }
 
+        public void dasd(){
+            DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+            desiredCapabilities.setBrowserName("Chrome");
+            desiredCapabilities.setVersion("dads");
+            driver = new EdgeDriver(desiredCapabilities);
+
+        }
     }
 
 
