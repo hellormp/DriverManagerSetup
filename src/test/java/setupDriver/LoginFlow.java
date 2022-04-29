@@ -5,6 +5,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,6 +15,7 @@ import ru.yandex.qatools.ashot.Screenshot;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.time.Instant;
 
 
 public class LoginFlow extends firstTest {
@@ -40,9 +42,17 @@ public class LoginFlow extends firstTest {
         WebElement signInJoinButton = driver.findElement(By.xpath("(//a[@rel='nofollow'])[5]"));
         signInJoinButton.click();
 
+        WebElement dynamicElement = (new WebDriverWait(driver,2))
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("ap_customer_name")));
+        dynamicElement.sendKeys("Yarik");
+        Assert.assertTrue(dynamicElement.isDisplayed());
 
-        WebElement nameInput = driver.findElement(By.id("ap_customer_name"));
-        nameInput.sendKeys("Yarik");
+        WebElement seleniumlink;
+        WebDriverWait W = new WebDriverWait(driver,5);
+        seleniumlink = W.until(ExpectedConditions.visibilityOfElementLocated(By.id("ap_customer_name")));
+
+
+
 
         WebElement yourEmailAddressInput = driver.findElement(By.xpath("//input[@placeholder='Your email address']"));
         yourEmailAddressInput.sendKeys("petopetopalkin@gmail.com");
