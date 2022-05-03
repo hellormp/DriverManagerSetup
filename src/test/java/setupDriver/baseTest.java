@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
-public class firstTest extends startDownTest{
+public class baseTest extends startDownTest{
     private static String URL = "https://www.bookdepository.com/";
 
     @Ignore //this getter was created for GET the URL
@@ -63,12 +63,6 @@ public class firstTest extends startDownTest{
         WebElement AddToBasket = driver.findElement(By.xpath("//a[@data-isbn='9780007419494']"));
         AddToBasket.click();
     }
-    public WebDriverWait getWait(long timeUnits){
-        WebDriverWait webDriverWait = new WebDriverWait(driver,timeUnits);
-        webDriverWait.ignoring(NoSuchElementException.class)
-                .ignoring(ElementNotInteractableException.class)
-                .ignoring(StaleElementReferenceException.class);
-        return webDriverWait;
-    }
+
 
 }
