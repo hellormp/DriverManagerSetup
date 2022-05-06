@@ -5,13 +5,14 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import setupDriver.LoginFlow;
 
 public class ActionsActionTests extends LoginFlow {
 
     @Test
-    public void writeInSerchField(){
+    void writeInSerchField() {
         driver.get("https://www.bookdepository.com/");
         WebElement searchField = driver.findElement(By.xpath("//input[@aria-label='Search for books by keyword / title / author / ISBN']"));
 
@@ -29,8 +30,9 @@ public class ActionsActionTests extends LoginFlow {
         System.out.println(driver.getTitle());
 
     }
+
     @Test
-    void changeLanguage(){
+    void hoverLanguageButton() {
         driver.get("https://www.bookdepository.com/");
         WebElement changeLanguageButton = driver.findElement(By.xpath("//div[@class='right-section']//div//div[@class='tbd-dropdown mob-nav-shop desktop-only dropdown']"));
         Actions hover = new Actions(driver);
@@ -41,5 +43,20 @@ public class ActionsActionTests extends LoginFlow {
         changeLanguageButtonHover.perform();
     }
 
+    @Test
+    void changeLanguage() {
+        driver.get("https://www.bookdepository.com/");
+        WebElement changeLanguageButton = driver.findElement(By.xpath("//div[@class='right-section']//div" +
+                "//div[@class='tbd-dropdown mob-nav-shop desktop-only dropdown']"));
+        Actions he = new Actions(driver);
+        he
+                .moveToElement(changeLanguageButton)
+                .build();
+        he.perform();
 
+//дописать
+
+    }
 }
+
+
